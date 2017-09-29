@@ -185,7 +185,6 @@ $.extend(Selectize.prototype, {
 		self.$dropdown         = $dropdown;
 		self.$dropdown_content = $dropdown_content;
 
-		$dropdown.on('mouseenter', '[data-selectable]', function() { return self.onOptionHover.apply(self, arguments); });
 		$dropdown.on('mousedown click', '[data-selectable]', function() { return self.onOptionSelect.apply(self, arguments); });
 		watchChildEvent($control, 'mousedown', '*:not(input)', function() { return self.onItemSelect.apply(self, arguments); });
 		autoGrow($control_input);
@@ -658,18 +657,6 @@ $.extend(Selectize.prototype, {
 		} else {
 			deactivate();
 		}
-	},
-
-	/**
-	 * Triggered when the user rolls over
-	 * an option in the autocomplete dropdown menu.
-	 *
-	 * @param {object} e
-	 * @returns {boolean}
-	 */
-	onOptionHover: function(e) {
-		if (this.ignoreHover) return;
-		this.setActiveOption(e.currentTarget, false);
 	},
 
 	/**
