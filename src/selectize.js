@@ -1603,6 +1603,11 @@
 
             // add "selected" class to selected options
             if (!self.settings.hideSelected) {
+                
+                for (var key in self.options) {
+                     self.getOption(key).removeClass('selected').removeClass('ion-checkmark');
+                }
+                
                 for (i = 0, n = self.items.length; i < n; i++) {
                     self.getOption(self.items[i]).addClass('selected').addClass('ion-checkmark');
                 }
